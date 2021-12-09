@@ -1,0 +1,16 @@
+type Block @jsonField {
+  number: Int!
+  specVersion: Int!
+  hash: String!
+}
+
+type BridgeDispatchEvent @entity {
+  id: ID!
+
+  method: String!
+  data: String!
+  index: Int!
+  messageId: String!
+
+  block: Block
+}
