@@ -1,13 +1,16 @@
 import { SubstrateEvent } from '@subql/types';
-import { EventHandler } from '../handlers';
+import { TransferHandler } from '../handlers';
 
 // export async function handleBlock(block: SubstrateBlock): Promise<void> {
 // }
 
 export async function handleEvent(event: SubstrateEvent): Promise<void> {
-  const entity = new EventHandler(event);
+  if (event.event.method === 'Transfer') {
+    const entity = new TransferHandler(event);
 
-  await entity.save();
+    await entity.save();
+  }
 }
 
-// export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {}
+// export async function handleCall(extrinsic: SubstrateExtrinsic): Promise<void> {
+// }

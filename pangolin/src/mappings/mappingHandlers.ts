@@ -1,5 +1,5 @@
 import { SubstrateEvent } from '@subql/types';
-import { TransferHandler } from '../handlers/transfer';
+import { TransferHandler } from '../handlers';
 
 // export async function handleBlock(block: SubstrateBlock): Promise<void> {
 // }
