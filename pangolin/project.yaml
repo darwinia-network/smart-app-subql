@@ -1,5 +1,5 @@
 specVersion: 0.2.0
-name: wormhole-pangolin
+name: smart-app-pangolin
 version: 1.0.0
 description: ''
 repository: git@github.com:darwinia-network/subql-wormhole.git
@@ -15,7 +15,7 @@ network:
 
 dataSources:
   - kind: substrate/Runtime
-    startBlock: 119850
+    startBlock: 500
     mapping:
       file: ./dist/index.js
       handlers:

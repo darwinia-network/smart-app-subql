@@ -1,16 +1,34 @@
 type Block @jsonField {
-  number: Int!
-  specVersion: Int!
-  hash: String!
+  number: Int
+  specVersion: Int
+  hash: String
 }
 
-type BridgeDispatchEvent @entity {
+type Account @entity {
   id: ID!
 
-  method: String!
-  data: String!
-  index: Int!
-  messageId: String!
+  transferTotalCount: Int
+
+  transferIn: [Transfer] @derivedFrom(field: "to")
+  transferOut: [Transfer] @derivedFrom(field: "from")
+}
+
+type Token @entity {
+  id: ID!
+
+  decimal: Int
+  name: String
+}
+
+type Transfer @entity {
+  id: ID!
+
+  from: Account
+  to: Account
+  token: Token
+  amount: BigInt
+  timestamp: Date
+  fee: BigInt
 
   block: Block
 }
