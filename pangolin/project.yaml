@@ -15,7 +15,7 @@ network:
 
 dataSources:
   - kind: substrate/Runtime
-    startBlock: 500
+    startBlock: 127000
     mapping:
       file: ./dist/index.js
       handlers:
